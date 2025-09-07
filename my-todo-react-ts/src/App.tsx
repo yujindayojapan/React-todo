@@ -1,7 +1,10 @@
+import React from 'react';
 import { useState } from "react";
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
 
 //型定義
-type Todo = {
+export  type Todo = {
   id: number;
   text: string;
   completed: boolean;
@@ -37,28 +40,11 @@ const App: React.FC = () => {
   return (
     <>
       <h1>Todoリスト</h1>
-      <input value={inputText} onChange={e => setInputText(e.target.value)} placeholder='入力してください' />
-      <button onClick={addTodo}>追加</button>
+      <TodoInput inputText={inputText} setInputText={setInputText} addTodo={addTodo}></TodoInput>
       <h2>未完了のTodo</h2>
-      <ul>
-        {todos.filter((todo) => !todo.completed).map(todo => (
-          <li key={todo.id}>
-            <span>{todo.text}</span>
-          <button onClick={() => toggleTodo(todo.id)}>完了</button>
-          <button onClick={() => deleteTodo(todo.id)}>削除</button>
-          </li>
-        ))}
-      </ul>
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} isCompleted={false}></TodoList>
       <h2>完了のTodo</h2>
-      <ul>
-        {todos.filter((todo) => todo.completed).map(todo => (
-          <li key={todo.id}>
-            <span>{todo.text}</span>
-          <button onClick={() => toggleTodo(todo.id)}>未完了</button>
-          <button onClick={() => deleteTodo(todo.id)}>削除</button>
-          </li>
-        ))}
-      </ul>
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} isCompleted={true}></TodoList>
     </>
   );
 }
