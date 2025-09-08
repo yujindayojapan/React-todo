@@ -5,7 +5,7 @@ import TodoList from './components/TodoList';
 import './App.css';
 
 //型定義
-export  type Todo = {
+export type Todo = {
   id: number;
   text: string;
   completed: boolean;
@@ -22,14 +22,14 @@ const App: React.FC = () => {
     //入力が空白の場合は追加しない
     if (inputText.trim() === "") return;
     //新しいTodoを作成してリスクに追加する
-    setTodos([...todos,{id:todos.length + 1, text: inputText, completed: false}]);
+    setTodos([...todos, { id: todos.length + 1, text: inputText, completed: false }]);
     //入力欄をクリアする
     setInputText("");
   }
   //Todo完了状態切り替え
   const toggleTodo = (id: number) => {
-    setTodos(todos.map(todo => 
-      todo.id === id ? {...todo, completed: !todo.completed} : todo
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ));
   }
 

@@ -1,12 +1,12 @@
 import React from 'react';
 //型定義
 type TodoInputProps = {
-    inputText: string;
-    setInputText: React.Dispatch<React.SetStateAction<string>>;
-    addTodo: () => void;
+  inputText: string;
+  setInputText: React.Dispatch<React.SetStateAction<string>>;
+  addTodo: () => void;
 }
 
-const TodoInput: React.FC<TodoInputProps> = ({inputText, setInputText,addTodo}) => {
+const TodoInput: React.FC<TodoInputProps> = ({ inputText, setInputText, addTodo }) => {
 
   return (
     <div className="todo-input-container">
