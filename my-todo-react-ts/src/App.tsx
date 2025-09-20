@@ -41,7 +41,7 @@ const App: React.FC = () => {
   return (
     <div className="app">
       <h1>Todoリスト
-        <img src="./public/react.svg" alt="React" className="framework-icon" />
+        <img src="/react.svg" alt="React" className="framework-icon" />
       </h1>
       <TodoInput inputText={inputText} setInputText={setInputText} addTodo={addTodo}></TodoInput>
       <h2>未完了のTodo</h2>

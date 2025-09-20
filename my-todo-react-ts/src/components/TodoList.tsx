@@ -16,10 +16,10 @@ const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodo, deleteTodo, isCo
     <>
       <ul>
         {todos.filter((todo) => todo.completed === isCompleted).map(todo => (
-          <li key={todo.id} className='todo-item'>
+          <li key={todo.id} className={`todo-item ${todo.completed ? 'completed-todo' : ''}`}>
             <span className='todo-text'>{todo.text}</span>
-            <button onClick={() => toggleTodo(todo.id)}>{isCompleted ? "未完了" : "完了"}</button>
-            <button onClick={() => deleteTodo(todo.id)}>削除</button>
+            <button className={`toggle-btn ${todo.completed ? 'uncomplete' : ''}`} onClick={() => toggleTodo(todo.id)}>{isCompleted ? "未完了" : "完了"}</button>
+            <button className="delete-btn" onClick={() => deleteTodo(todo.id)}>削除</button>
           </li>
         ))}
       </ul>
